@@ -48,7 +48,7 @@ def draw(player_position1, player_position2, BALL_WIDTH,
 	text = label.render("Made By EGE", True, text_color)
 	WIN.blit(text, (WIN_WIDTH//3, WIN_HEIGHT//2))
 	WIN.blit(point1_text, (76, 20))
-	WIN.blit(point2_text, (WIN_WIDTH - 76, 20))	
+	WIN.blit(point2_text, (WIN_WIDTH - 76, 20))
 	pygame.draw.rect(WIN, renk, player1)
 	pygame.draw.rect(WIN, renk, player2)
 	pygame.draw.rect(WIN, line_renk, line)
@@ -107,9 +107,8 @@ def main():
 
 		# TOPUN PLAKALARDAN SEKMESI
 		if (WIN_WIDTH - BALL_RAD <= BALL_WIDTH + BALL_RAD or 2 * PLAYER_WIDTH >= BALL_WIDTH) and (
-			PLAYER_POSITION1 <= BALL_HEIGHT <= PLAYER_POSITION1 + PLAYER_HEIGHT or 
+			PLAYER_POSITION1 <= BALL_HEIGHT <= PLAYER_POSITION1 + PLAYER_HEIGHT or
 			PLAYER_POSITION2 <= BALL_HEIGHT <= PLAYER_POSITION2 + PLAYER_HEIGHT):
-			PING.play()
 			BALL_VEL_X = -BALL_VEL_X
 			BALL_WIDTH += BALL_VEL_X
 
@@ -138,14 +137,13 @@ def main():
 			line_renk = GRAY
 			pygame.mixer.music.play()
 
-		
+
 		# TOPUN Y EKSENINDE HAREKETI
 		if BALL_HEIGHT + BALL_RAD < WIN_HEIGHT and BALL_HEIGHT > 0:
 			BALL_HEIGHT += BALL_VEL_Y
 
 		# TOPUN YUKARI ASAGIDAN SEKMESI
 		if BALL_HEIGHT + BALL_RAD >= WIN_HEIGHT or BALL_HEIGHT <= 0:
-			PING.play()
 			BALL_VEL_Y = -BALL_VEL_Y
 			BALL_HEIGHT += BALL_VEL_Y
 
